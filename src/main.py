@@ -1,11 +1,8 @@
-import requests
-import logging
-from bs4 import BeautifulSoup
+import scraper
 
-request = requests.get('https://e24.no/bors/aksjer/delayed?sort=displayName&size=1000')
+def main():
+    s = scraper.Scraper()
+    s.scrape()
 
-if request.status_code==200:
-    soup = BeautifulSoup(request.content, 'html.parser')
-    print(soup.prettify())
-else:
-    print('ERROR: Responscode from e24 is not equal to 200.')
+if __name__ == "__main__":
+    main()
